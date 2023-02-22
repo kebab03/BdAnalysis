@@ -1,0 +1,286 @@
+
+C:\Users\PC\Documents\Programmiing>python
+Python 3.9.8 (tags/v3.9.8:bb3fdcf, Nov  5 2021, 20:48:33) [MSC v.1929 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import pyexcel as pe
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ModuleNotFoundError: No module named 'pyexcel'
+>>> exit()
+
+C:\Users\PC\Documents\Programmiing>pip install pyexcel
+Collecting pyexcel
+  Downloading pyexcel-0.7.0-py2.py3-none-any.whl (87 kB)
+     ---------------------------------------- 87.7/87.7 kB 5.2 MB/s eta 0:00:00
+Requirement already satisfied: lml>=0.0.4 in c:\users\pc\appdata\local\programs\python\python39\lib\site-packages (from pyexcel) (0.1.0)
+Collecting chardet
+  Downloading chardet-5.1.0-py3-none-any.whl (199 kB)
+     ---------------------------------------- 199.1/199.1 kB 6.1 MB/s eta 0:00:00
+Requirement already satisfied: pyexcel-io>=0.6.2 in c:\users\pc\appdata\local\programs\python\python39\lib\site-packages (from pyexcel) (0.6.6)
+Collecting texttable>=0.8.2
+  Downloading texttable-1.6.7-py2.py3-none-any.whl (10 kB)
+Installing collected packages: texttable, chardet, pyexcel
+Successfully installed chardet-5.1.0 pyexcel-0.7.0 texttable-1.6.7
+
+[notice] A new release of pip available: 22.2.2 -> 23.0
+[notice] To update, run: python.exe -m pip install --upgrade pip
+
+C:\Users\PC\Documents\Programmiing>python
+Python 3.9.8 (tags/v3.9.8:bb3fdcf, Nov  5 2021, 20:48:33) [MSC v.1929 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import pyexcel as pe
+>>>
+>>> data = pe.get_array(file_name="example.ods")
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "C:\Users\PC\AppData\Local\Programs\Python\Python39\lib\site-packages\pyexcel\core.py", line 137, in get_array
+    sheet = get_sheet(**keywords)
+  File "C:\Users\PC\AppData\Local\Programs\Python\Python39\lib\site-packages\pyexcel\core.py", line 37, in get_sheet
+    named_content = sources.get_sheet_stream(**keywords)
+  File "C:\Users\PC\AppData\Local\Programs\Python\Python39\lib\site-packages\pyexcel\internal\core.py", line 21, in get_sheet_stream
+    sheets = a_source.get_data()
+  File "C:\Users\PC\AppData\Local\Programs\Python\Python39\lib\site-packages\pyexcel\plugins\sources\file_input.py", line 38, in get_data
+    sheets = self.__parser.parse_file(self.__file_name, **self._keywords)
+  File "C:\Users\PC\AppData\Local\Programs\Python\Python39\lib\site-packages\pyexcel\plugins\parsers\excel.py", line 19, in parse_file
+    return self._parse_any(file_name, **keywords)
+  File "C:\Users\PC\AppData\Local\Programs\Python\Python39\lib\site-packages\pyexcel\plugins\parsers\excel.py", line 40, in _parse_any
+    sheets = get_data(anything, file_type=file_type, **keywords)
+  File "C:\Users\PC\AppData\Local\Programs\Python\Python39\lib\site-packages\pyexcel_io\io.py", line 86, in get_data
+    data, _ = _get_data(
+  File "C:\Users\PC\AppData\Local\Programs\Python\Python39\lib\site-packages\pyexcel_io\io.py", line 105, in _get_data
+    return load_data(**keywords)
+  File "C:\Users\PC\AppData\Local\Programs\Python\Python39\lib\site-packages\pyexcel_io\io.py", line 191, in load_data
+    reader.open(file_name, **keywords)
+  File "C:\Users\PC\AppData\Local\Programs\Python\Python39\lib\site-packages\pyexcel_io\reader.py", line 47, in open
+    self.reader = self.reader_class(
+  File "C:\Users\PC\AppData\Local\Programs\Python\Python39\lib\site-packages\pyexcel_ods\odsr.py", line 106, in __init__
+    self._native_book = load(file_alike_object)
+  File "C:\Users\PC\AppData\Local\Programs\Python\Python39\lib\site-packages\odf\opendocument.py", line 982, in load
+    z = zipfile.ZipFile(odffile)
+  File "C:\Users\PC\AppData\Local\Programs\Python\Python39\lib\zipfile.py", line 1239, in __init__
+    self.fp = io.open(file, filemode)
+FileNotFoundError: [Errno 2] No such file or directory: 'example.ods'
+>>> print(data)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'data' is not defined
+>>> data = pe.get_array(file_name="bdData.ods")
+>>> print(data)
+[['', '', '', '2021-2022 ', '', '', '', '2022-2023', '', ''], ['', '', '', 'June', '1837.27', '169.09', '', 'January', '1958.87', '195.67'], ['', '', '', 'May', '1885.34', '164.37', '', 'December', '1699.70', '168.01'], ['', '', '', 'April', '2010.81', '173.39', '', 'November', '1595.17', '155.71'], ['', '', '', 'March', '1859.73', '160.05', '', 'October', '1525.54', '147.39'], ['', '', '', 'February', '1494.47', '128.52', '', 'September', '1539.60', '147.21'], ['', '', '', 'January', '1704.53', '146.51', '', 'August', '2036.93', '193.32'], ['', '', '', 'December', '1630.66', '139.91', '', 'July', '2096.32', '196.82'], ['', '', '', 'November', '1553.70', '133.27', '', '', '', ''], ['', '', '', 'October', '1646.87', '140.99', '', '', '', ''], ['', '', '', 'September', '1726.71', '147.22', '', '', '', ''], ['', '', '', 'August', '1810.10', '153.77', '', '', '', ''], ['2020-2021 ', '', '', 'July', '1871.49', '158.71', '', '', '', ''], ['June', '1940.81', '164.61', '', '', '', '', '', '', ''], ['May', '2171.03', '184.10', 4, '', '', '', '', '', ''], ['April', '2067.64', '175.34', 6, '', '', '', '', '', ''], ['March', '1910.98', '162.05', '', '', '', '', '', '', ''], ['February', '1780.59', '151.00', '', '', '', '', '', '', ''], ['January', '1961.91', '166.37', '', '', '', '', '', '', ''], ['December', '2050.65', '173.90', '', '', '', '', '', '', ''], ['November', '2078.74', '176.28', '', '', '', '', '', '', ''], ['October', '2102.16', '178.27', '', '', '', '', '', '', ''], ['September', '2151.05', '182.41', '', '', '', '', '', '', ''], ['August', '1963.94', '166.62', '', '', '', '', '', '', ''], ['', '#VALORE!', '', '', '', '', '', '', '', ''], ['', 0, '', '', '', '', '', '', '', '']]
+>>> print(data[1])
+['', '', '', 'June', '1837.27', '169.09', '', 'January', '1958.87', '195.67']
+>>> print(data[1][4])
+1837.27
+>>> import pandas as pd
+>>> d1f = pd.read_csv('bdData.csv', delimiter='.')
+>>> print(d1f)
+    Unnamed: 0 Unnamed: 1  Unnamed: 2 2021-2022   Unnamed: 4  Unnamed: 5  Unnamed: 6  2022-2023  Unnamed: 8  Unnamed: 9
+0          NaN        NaN         NaN       June     1837.27      169.09         NaN    January     1958.87      195.67
+1          NaN        NaN         NaN        May     1885.34      164.37         NaN   December     1699.70      168.01
+2          NaN        NaN         NaN      April     2010.81      173.39         NaN   November     1595.17      155.71
+3          NaN        NaN         NaN      March     1859.73      160.05         NaN    October     1525.54      147.39
+4          NaN        NaN         NaN   February     1494.47      128.52         NaN  September     1539.60      147.21
+5          NaN        NaN         NaN    January     1704.53      146.51         NaN     August     2036.93      193.32
+6          NaN        NaN         NaN   December     1630.66      139.91         NaN       July     2096.32      196.82
+7          NaN        NaN         NaN   November     1553.70      133.27         NaN        NaN         NaN         NaN
+8          NaN        NaN         NaN    October     1646.87      140.99         NaN        NaN         NaN         NaN
+9          NaN        NaN         NaN  September     1726.71      147.22         NaN        NaN         NaN         NaN
+10         NaN        NaN         NaN     August     1810.10      153.77         NaN        NaN         NaN         NaN
+11  2020-2021         NaN         NaN       July     1871.49      158.71         NaN        NaN         NaN         NaN
+12        June    1940.81      164.61        NaN         NaN         NaN         NaN        NaN         NaN         NaN
+13         May    2171.03      184.10          4         NaN         NaN         NaN        NaN         NaN         NaN
+14       April    2067.64      175.34          6         NaN         NaN         NaN        NaN         NaN         NaN
+15       March    1910.98      162.05        NaN         NaN         NaN         NaN        NaN         NaN         NaN
+16    February    1780.59      151.00        NaN         NaN         NaN         NaN        NaN         NaN         NaN
+17     January    1961.91      166.37        NaN         NaN         NaN         NaN        NaN         NaN         NaN
+18    December    2050.65      173.90        NaN         NaN         NaN         NaN        NaN         NaN         NaN
+19    November    2078.74      176.28        NaN         NaN         NaN         NaN        NaN         NaN         NaN
+20     October    2102.16      178.27        NaN         NaN         NaN         NaN        NaN         NaN         NaN
+21   September    2151.05      182.41        NaN         NaN         NaN         NaN        NaN         NaN         NaN
+22      August    1963.94      166.62        NaN         NaN         NaN         NaN        NaN         NaN         NaN
+23         NaN   #VALORE!         NaN        NaN         NaN         NaN         NaN        NaN         NaN         NaN
+24         NaN     ,00000         NaN        NaN         NaN         NaN         NaN        NaN         NaN         NaN
+>>> print(d1f['Unnamed: 1'][12:22])
+12    1940.81
+13    2171.03
+14    2067.64
+15    1910.98
+16    1780.59
+17    1961.91
+18    2050.65
+19    2078.74
+20    2102.16
+21    2151.05
+Name: Unnamed: 1, dtype: object
+>>> print(d1f['Unnamed: 1'][12:22].sum())
+1940.812171.032067.641910.981780.591961.912050.652078.742102.162151.05
+>>>  values=d1f['Unnamed: 1'].str.replace('.', ',')[12:22]
+  File "<stdin>", line 1
+    values=d1f['Unnamed: 1'].str.replace('.', ',')[12:22]
+IndentationError: unexpected indent
+>>> values=d1f['Unnamed: 1'].str.replace('.', ',')[12:22]
+<stdin>:1: FutureWarning: The default value of regex will change from True to False in a future version. In addition, single character regular expressions will *not* be treated as literal strings when regex=True.
+>>> print(values)
+12    1940,81
+13    2171,03
+14    2067,64
+15    1910,98
+16    1780,59
+17    1961,91
+18    2050,65
+19    2078,74
+20    2102,16
+21    2151,05
+Name: Unnamed: 1, dtype: object
+>>> print(values.sum())
+1940,812171,032067,641910,981780,591961,912050,652078,742102,162151,05
+>>> d1f['Unnamed: 1']=d1f['Unnamed: 1'].str.replace('.', ',')
+>>> print(d1f['Unnamed: 1'])
+0          NaN
+1          NaN
+2          NaN
+3          NaN
+4          NaN
+5          NaN
+6          NaN
+7          NaN
+8          NaN
+9          NaN
+10         NaN
+11         NaN
+12     1940,81
+13     2171,03
+14     2067,64
+15     1910,98
+16     1780,59
+17     1961,91
+18     2050,65
+19     2078,74
+20     2102,16
+21     2151,05
+22     1963,94
+23    #VALORE!
+24      ,00000
+Name: Unnamed: 1, dtype: object
+>>> d1f.to_csv('my_updated_spreadsheet1.csv', index=False)
+>>> d1f['Unnamed: 4']=d1f['Unnamed: 4'].str.replace('.', ',')
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "C:\Users\PC\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\core\generic.py", line 5902, in __getattr__
+    return object.__getattribute__(self, name)
+  File "C:\Users\PC\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\core\accessor.py", line 182, in __get__
+    accessor_obj = self._accessor(obj)
+  File "C:\Users\PC\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\core\strings\accessor.py", line 181, in __init__
+    self._inferred_dtype = self._validate(data)
+  File "C:\Users\PC\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\core\strings\accessor.py", line 235, in _validate
+    raise AttributeError("Can only use .str accessor with string values!")
+AttributeError: Can only use .str accessor with string values!
+>>> print(d1f['Unnamed: 4'])
+0     1837.27
+1     1885.34
+2     2010.81
+3     1859.73
+4     1494.47
+5     1704.53
+6     1630.66
+7     1553.70
+8     1646.87
+9     1726.71
+10    1810.10
+11    1871.49
+12        NaN
+13        NaN
+14        NaN
+15        NaN
+16        NaN
+17        NaN
+18        NaN
+19        NaN
+20        NaN
+21        NaN
+22        NaN
+23        NaN
+24        NaN
+Name: Unnamed: 4, dtype: float64
+>>> d1f['Unnamed: 4']=d1f['Unnamed: 4'].str.replace('.', ',')
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "C:\Users\PC\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\core\generic.py", line 5902, in __getattr__
+    return object.__getattribute__(self, name)
+  File "C:\Users\PC\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\core\accessor.py", line 182, in __get__
+    accessor_obj = self._accessor(obj)
+  File "C:\Users\PC\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\core\strings\accessor.py", line 181, in __init__
+    self._inferred_dtype = self._validate(data)
+  File "C:\Users\PC\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\core\strings\accessor.py", line 235, in _validate
+    raise AttributeError("Can only use .str accessor with string values!")
+AttributeError: Can only use .str accessor with string values!
+>>> d1f['Unnamed: 4'] = d1f['Unnamed: 4'].apply(lambda x: str(x).replace('.', ',') if pd.notnull(x) else x)
+>>>
+>>> print(d1f['Unnamed: 4'])
+0     1837,27
+1     1885,34
+2     2010,81
+3     1859,73
+4     1494,47
+5     1704,53
+6     1630,66
+7      1553,7
+8     1646,87
+9     1726,71
+10     1810,1
+11    1871,49
+12        NaN
+13        NaN
+14        NaN
+15        NaN
+16        NaN
+17        NaN
+18        NaN
+19        NaN
+20        NaN
+21        NaN
+22        NaN
+23        NaN
+24        NaN
+Name: Unnamed: 4, dtype: object
+>>> d1f['Unnamed: 8']=d1f['Unnamed: 8'].str.replace('.', ',')
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "C:\Users\PC\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\core\generic.py", line 5902, in __getattr__
+    return object.__getattribute__(self, name)
+  File "C:\Users\PC\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\core\accessor.py", line 182, in __get__
+    accessor_obj = self._accessor(obj)
+  File "C:\Users\PC\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\core\strings\accessor.py", line 181, in __init__
+    self._inferred_dtype = self._validate(data)
+  File "C:\Users\PC\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\core\strings\accessor.py", line 235, in _validate
+    raise AttributeError("Can only use .str accessor with string values!")
+AttributeError: Can only use .str accessor with string values!
+>>> d1f['Unnamed: 8'] = d1f['Unnamed: 8'].apply(lambda x: str(x).replace('.', ',') if pd.notnull(x) else x)
+>>> print(d1f['Unnamed: 8'])
+0     1958,87
+1      1699,7
+2     1595,17
+3     1525,54
+4      1539,6
+5     2036,93
+6     2096,32
+7         NaN
+8         NaN
+9         NaN
+10        NaN
+11        NaN
+12        NaN
+13        NaN
+14        NaN
+15        NaN
+16        NaN
+17        NaN
+18        NaN
+19        NaN
+20        NaN
+21        NaN
+22        NaN
+23        NaN
+24        NaN
+Name: Unnamed: 8, dtype: object
+>>> d1f.to_csv('my_updated_spreadsheet2.csv', index=False)
